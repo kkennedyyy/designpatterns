@@ -1,10 +1,8 @@
+package strategy;
+import java.util.ArrayList;
 /** 
  * @author Kennedy Poag
  */
-package strategy;
-
-import java.util.ArrayList;
-
 public class QuickSort implements SortBehavior {
     
     /** 
@@ -13,7 +11,7 @@ public class QuickSort implements SortBehavior {
      */
     @Override
     public ArrayList<Appartment> sort(ArrayList<Appartment> appartments) {
-        // Make sure list has more than one element
+         /** Make sure list has more than one element */
         if (appartments.size() <= 1) {
             return appartments;
         }
@@ -22,17 +20,17 @@ public class QuickSort implements SortBehavior {
 
         ArrayList<Appartment> left = new ArrayList<>();
         ArrayList<Appartment> right = new ArrayList<>();
-        // Loop through the list and divide based on comparison with middle
+         /** Loop through the list and divide based on comparison with middle */
         for ( int i = 0; i < appartments.size() - 1; i++) {
-            // current element is smaller than middle, add to left
+             /** current element is smaller than middle, add to left */
             if (appartments.get(i).compareTo(middle) < 0) {
                 left.add(appartments.get(i));
-                // else add to right
+                 /** else add to right */
             } else {
                 right.add(appartments.get(i));
             }
         }
-        // Sort left and right sublists and merge them
+         /** Sort left and right sublists and merge them */
         ArrayList<Appartment> sortedList = new ArrayList<>();
         sortedList.addAll(sort(right));
         sortedList.add(middle);
